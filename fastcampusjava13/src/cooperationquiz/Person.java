@@ -2,30 +2,27 @@ package cooperationquiz;
 
 public class Person {
 
-	String personName;
+	String name;
 	int money;
 	
-	public Person(String personName, int money) {
-		this.personName = personName;
+	Person(String name, int money) {
+		this.name = name;
 		this.money = money;
 	}
 	
-	public void buyStarbucks(Starbucks starbucks) {
-		starbucks.take(4000);
-		this.money -= 4000;
+	public void buyStarCoffee(StarCoffee sCoffee, int money) {
+		String message = sCoffee.brewing(4000);
+		if(message != null) {
+			this.money -= money;
+			System.out.println(name + " ÎãòÏù¥" + money +"ÏúºÎ°ú "  + message);
+		}
 	}
 	
-	public void buyCoffeeBean(CoffeeBean coffeeBean) {
-		coffeeBean.take(4500);
-		this.money -= 4500;
-	}
-	
-	public void showInfo() {
-		System.out.println(personName+ "¥‘¿« ≥≤¿∫ µ∑¿∫ " + money + "ø¯ ¿‘¥œ¥Ÿ");
-	}
-	
-	
-	
-	
-	
+	public void buyBeanCoffee(BeanCoffee bCoffee, int money) {
+		String message = bCoffee.brewing(4500);
+		if(message != null) {
+			this.money -= money;
+			System.out.println(name + " ÎãòÏù¥" + money +"ÏúºÎ°ú "  + message);
+		}
+	}	
 }
